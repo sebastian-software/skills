@@ -280,6 +280,10 @@ Red + checkbox that must be selected before action can occur.
 
 UX research shows confirmation dialogs are ineffective - users click through them automatically without reading. Undo is almost always better.
 
+Make undo the default for reversible destructive actions. It keeps users in
+flow, makes the result visible immediately, and gives them a real recovery path
+instead of asking them to predict whether they made a mistake.
+
 **Undo pattern:**
 1. Execute action immediately
 2. Show toast: "Email deleted. [Undo]"
@@ -295,6 +299,11 @@ UX research shows confirmation dialogs are ineffective - users click through the
 - Truly irreversible actions (account deletion)
 - High-cost actions (payments)
 - Batch operations affecting many items
+
+For anything else, first ask whether the system can delay the final operation,
+soft-delete, archive, or retain a short recovery window. A reversible operation
+with undo is usually safer than a modal confirmation that users dismiss from
+muscle memory.
 
 **Example - Gmail style:**
 ```

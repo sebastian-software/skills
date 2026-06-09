@@ -104,6 +104,7 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 - Button text: verb + noun (e.g., "Save post")
 - Minimum size: 48pt × 48pt
 - Avoid disabled buttons - validate on submit instead
+- Prefer undo over confirmation for reversible destructive actions; reserve confirmation dialogs for irreversible, high-cost, or batch operations
 
 ### Interaction States
 - Every interactive component needs Default, Hover, Focus, Active, Disabled, Loading, Error, and Success states
