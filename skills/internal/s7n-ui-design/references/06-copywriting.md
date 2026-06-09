@@ -287,6 +287,10 @@ Good: "Payment failed. Update your payment details and try again"
 
 An empty container with no content is never neutral — users cannot tell whether it is loading, broken, or simply unused. Every screen that can be empty needs an intentionally designed empty state.
 
+Treat empty states as in-context onboarding. They should help users understand
+the component at the exact moment they need that understanding, without
+interrupting the product with a separate tour.
+
 ### Three Types of Empty State
 
 | Type | Trigger | Tone |
@@ -302,6 +306,22 @@ An empty container with no content is never neutral — users cannot tell whethe
 3. **CTA button** (situational) — links directly to the action that fills the state. Use verb + noun: "Create project", "Add first task". Not every empty state needs a CTA — cleared states often just need a confirmation message.
 4. **Illustration or icon** (optional) — reinforces the message. Use `alt=""` on decorative illustrations.
 
+### First-Use Empty States
+
+First-use empty states are often the user's first real encounter with a
+feature. They must answer:
+
+- What will appear here?
+- Why is that useful?
+- What is the smallest action that creates value?
+- Is there a sample, template, import, or sensible default that avoids starting
+  from nothing?
+
+Prefer useful starter content when the product can provide it. A project
+management app can create example tasks; an analytics product can show a sample
+dashboard; an editor can offer templates. Starter content often teaches better
+than explanatory copy.
+
 **Guidelines:**
 - First-use empty states are one of the most effective onboarding mechanisms — they teach in context, at the moment of need, without modal tours or coach marks
 - Match the message to the specific scenario — never use a generic "Nothing here" across all empty states
@@ -309,6 +329,8 @@ An empty container with no content is never neutral — users cannot tell whethe
 - Never blame the user in no-results states: "We couldn't find anything" not "You didn't enter valid search terms"
 - When the empty state appears dynamically (e.g. after filtering), use `role="status"` so screen readers announce the change
 - Consider starter/sample content as an alternative for first-use states — pre-loaded templates eliminate the empty state entirely
+- Keep empty-state CTAs scoped to the component. Do not send users into a broad
+  setup flow when one direct action can populate the view.
 
 ## Chapter Summary
 

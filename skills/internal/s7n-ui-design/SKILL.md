@@ -121,6 +121,12 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 - Display hints above fields (not below)
 - Use `:user-valid`/`:user-invalid` for validation that respects interaction timing
 
+### Empty States
+- Design empty states as part of the real component, not as blank space
+- Explain what belongs there, why it matters, and the next useful action
+- Use first-use empty states to teach in context; avoid blocking tours when inline guidance is enough
+- Distinguish first-use, user-cleared, no-results, no-permission, loading, and error states
+
 ### SEO
 - Unique `<title>` per page (50-60 chars, primary keyword near the beginning)
 - Unique `<meta name="description">` per page (150-160 chars)
@@ -180,6 +186,7 @@ Before finalizing any UI design:
    - [ ] Plain language (no jargon)
    - [ ] Front-loaded important info
    - [ ] Descriptive button text
+   - [ ] Empty states explain the missing content and provide the next useful action
 
 6. **Forms**
    - [ ] Single column layout
