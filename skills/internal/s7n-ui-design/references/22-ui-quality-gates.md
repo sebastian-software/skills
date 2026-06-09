@@ -21,6 +21,30 @@ right issue. Mark each category as `blocked`, `risky`, or `acceptable`.
 - All `acceptable`: the implementation can ship from a measurable-quality
   perspective.
 
+## Final Execution Pass
+
+Use this pass after implementation, not as an open-ended polish loop. Its job is
+to catch execution mistakes in an otherwise correct direction.
+
+Check:
+
+- **Design-system fit:** no one-off colors, spacing, shadows, radius, icons, or
+  controls where project tokens/components already exist.
+- **Alignment and spacing:** related elements align, gaps follow the project
+  scale, and optical adjustments are intentional.
+- **State completeness:** loading, empty, error, success, disabled, focus, and
+  hover states are present where the component needs them.
+- **Copy consistency:** labels use the same nouns and verbs as the surrounding
+  product, button text says what happens, and errors explain recovery.
+- **Responsive execution:** long text, narrow viewports, touch targets, zoom,
+  and reduced motion are handled in the real UI.
+- **Layout stability:** images, embeds, loading indicators, and async content do
+  not shift the page unexpectedly.
+
+Do not use this pass to change the design register, invent a new visual
+direction, or add decoration. If the pass reveals that the direction itself is
+wrong, return to the Design Readiness Check and revise the brief.
+
 ## Use With Judgment
 
 This gate covers measurable quality. It does not replace design judgment. A UI
