@@ -3,6 +3,7 @@ import { homedir } from "node:os";
 import path from "node:path";
 
 import type { RepoPaths, TargetName } from "./types.js";
+
 import { SkillSyncError } from "./errors.js";
 
 export function findRepoRoot(start = process.cwd()): string {

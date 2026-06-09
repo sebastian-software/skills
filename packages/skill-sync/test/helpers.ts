@@ -2,9 +2,19 @@ import { execFile } from "node:child_process";
 import { promises as fs } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { promisify } from "node:util";
 
-const execFileAsync = promisify(execFile);
+async function runGit(args: string[], cwd: string): Promise<void> {
+  await new Promise<void>((resolve, reject) => {
+    execFile("git", args, { cwd }, (error) => {
+      if (error !== null) {
+        reject(error instanceof Error ? error : new Error("Git command failed", { cause: error }));
+        return;
+      }
+
+      resolve();
+    });
+  });
+}
 
 export async function makeTempDir(prefix = "skill-sync-test-"): Promise<string> {
   return fs.mkdtemp(path.join(tmpdir(), prefix));
@@ -49,14 +59,11 @@ export async function createRepoRoot(): Promise<string> {
 export async function createGitSkillRepo(skillName: string): Promise<string> {
   const repoRoot = await makeTempDir("skill-sync-source-");
   await writeSkill(repoRoot, skillName);
-  await execFileAsync("git", ["init", "--initial-branch=main"], {
-    cwd: repoRoot,
-  });
-  await execFileAsync("git", ["add", "."], { cwd: repoRoot });
-  await execFileAsync(
-    "git",
+  await runGit(["init", "--initial-branch=main"], repoRoot);
+  await runGit(["add", "."], repoRoot);
+  await runGit(
     ["-c", "user.email=test@example.com", "-c", "user.name=Test User", "commit", "-m", "initial"],
-    { cwd: repoRoot },
+    repoRoot,
   );
   return repoRoot;
 }

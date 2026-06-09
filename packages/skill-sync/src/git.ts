@@ -2,8 +2,8 @@ import { promises as fs } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
-import { run } from "./exec.js";
 import { SkillSyncError } from "./errors.js";
+import { run } from "./exec.js";
 
 export async function resolveGitRef(repo: string, ref: string): Promise<string> {
   const direct = await run("git", ["ls-remote", repo, ref]);

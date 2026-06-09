@@ -7,6 +7,9 @@ export default defineConfig({
     cli: "src/cli.ts",
     index: "src/index.ts",
   },
+  banner({ fileName }) {
+    return fileName === "cli.mjs" ? "#!/usr/bin/env node" : undefined;
+  },
   format: "esm",
   platform: "node",
   target: "node24",

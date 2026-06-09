@@ -1,12 +1,13 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
 
+import type { RepoPaths, SkillDefinition, SourceKind } from "./types.js";
+
+import { SkillSyncError } from "./errors.js";
 import { parseSkillFrontmatter } from "./frontmatter.js";
 import { copyDir, emptyDir, hashDirectory, listChildDirs, pathExists } from "./fs.js";
-import type { RepoPaths, SkillDefinition, SourceKind } from "./types.js";
-import { SkillSyncError } from "./errors.js";
 
-async function discoverSkillDir(root: string, kind: SourceKind): Promise<SkillDefinition | null> {
+async function discoverSkillDir(root: string, kind: SourceKind): Promise<null | SkillDefinition> {
   const skillFile = path.join(root, "SKILL.md");
   if (!(await pathExists(skillFile))) {
     return null;

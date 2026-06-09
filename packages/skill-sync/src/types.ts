@@ -1,6 +1,6 @@
-export type SourceKind = "internal" | "external";
+export type SourceKind = "external" | "internal";
 
-export type TargetName = "codex" | "agents" | "all";
+export type TargetName = "agents" | "all" | "codex";
 
 export interface InternalSource {
   id: string;

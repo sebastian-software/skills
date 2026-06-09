@@ -2,7 +2,12 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { importInternalCommand, updateExternalCommand } from "../src/index.js";
+import {
+  getRepoPaths,
+  importInternalCommand,
+  readLockfile,
+  updateExternalCommand,
+} from "../src/index.js";
 import { createGitSkillRepo, createRepoRoot, writeJson } from "./helpers.js";
 
 describe("source import and update commands", () => {
@@ -22,11 +27,9 @@ describe("source import and update commands", () => {
     });
 
     const imported = await importInternalCommand(repoRoot);
-    const lockfile = JSON.parse(
-      await fs.readFile(path.join(repoRoot, "manifests", "skills.lock.json"), "utf8"),
-    ) as { sources: Array<{ id: string; kind: string }> };
+    const lockfile = await readLockfile(getRepoPaths(repoRoot));
 
-    expect(imported).toEqual(["internal-source"]);
+    expect(imported).toStrictEqual(["internal-source"]);
     await expect(
       fs.stat(path.join(repoRoot, "skills", "internal", "internal-source", "SKILL.md")),
     ).resolves.toBeDefined();
@@ -52,14 +55,10 @@ describe("source import and update commands", () => {
     });
 
     const updated = await updateExternalCommand(repoRoot);
-    const lockfile = JSON.parse(
-      await fs.readFile(path.join(repoRoot, "manifests", "skills.lock.json"), "utf8"),
-    ) as unknown as {
-      sources: Array<{ id: string; kind: string; integrity: string }>;
-    };
+    const lockfile = await readLockfile(getRepoPaths(repoRoot));
     const entry = lockfile.sources.find((source) => source.id === "external-source");
 
-    expect(updated).toEqual(["external-source"]);
+    expect(updated).toStrictEqual(["external-source"]);
     expect(entry).toBeDefined();
     expect(entry?.kind).toBe("external");
     expect(entry?.integrity).toMatch(/^git-/);

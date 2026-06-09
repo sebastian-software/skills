@@ -1,7 +1,9 @@
-#!/usr/bin/env node
 import { Command } from "commander";
 import pc from "picocolors";
 
+import type { TargetName } from "./types.js";
+
+import { SkillSyncError } from "./errors.js";
 import {
   buildCommand,
   doctorCommand,
@@ -10,8 +12,6 @@ import {
   updateExternalCommand,
   validateCommand,
 } from "./index.js";
-import { SkillSyncError } from "./errors.js";
-import type { TargetName } from "./types.js";
 
 const program = new Command();
 
@@ -53,7 +53,7 @@ program
 program
   .command("validate")
   .description("Validate manifests, lockfile, and skill structure")
-  .action(() =>
+  .action(async () =>
     runCli(async () => {
       const result = await validateCommand();
       if (!result.ok) {
@@ -74,7 +74,7 @@ program
 program
   .command("build")
   .description("Build the flat dist/skills tree")
-  .action(() =>
+  .action(async () =>
     runCli(async () => {
       const skills = await buildCommand();
       printList("Built skills", skills);
@@ -89,7 +89,12 @@ program
   .option("--dry-run", "show changes without writing")
   .option("--verbose", "print every sync operation")
   .action(
-    (options: { target: TargetName; targetDir?: string; dryRun?: boolean; verbose?: boolean }) =>
+    async (options: {
+      target: TargetName;
+      targetDir?: string;
+      dryRun?: boolean;
+      verbose?: boolean;
+    }) =>
       runCli(async () => {
         const messages = await syncCommand(options);
         for (const message of messages) {
@@ -101,7 +106,7 @@ program
 program
   .command("import-internal")
   .description("Import configured Sebastian Software skill repositories")
-  .action(() =>
+  .action(async () =>
     runCli(async () => {
       const imported = await importInternalCommand();
       printList("Imported internal skills", imported);
@@ -111,7 +116,7 @@ program
 program
   .command("update-external")
   .description("Resolve and optionally vendor configured external skills")
-  .action(() =>
+  .action(async () =>
     runCli(async () => {
       const updated = await updateExternalCommand();
       printList("Updated external skills", updated);
@@ -121,7 +126,7 @@ program
 program
   .command("doctor")
   .description("Report local environment and repository health")
-  .action(() =>
+  .action(async () =>
     runCli(async () => {
       const lines = await doctorCommand();
       for (const line of lines) {

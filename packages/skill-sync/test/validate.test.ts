@@ -33,7 +33,7 @@ describe("validateCommand", () => {
 
     const built = await buildCommand(repoRoot);
 
-    expect(built).toEqual(["alpha"]);
+    expect(built).toStrictEqual(["alpha"]);
     await expect(
       fs.stat(path.join(repoRoot, "dist", "skills", "alpha", "SKILL.md")),
     ).resolves.toBeDefined();

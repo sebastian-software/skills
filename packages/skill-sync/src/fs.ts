@@ -11,9 +11,9 @@ export async function pathExists(filePath: string): Promise<boolean> {
   }
 }
 
-export async function readJson<T>(filePath: string): Promise<T> {
+export async function readJson(filePath: string): Promise<unknown> {
   const text = await fs.readFile(filePath, "utf8");
-  return JSON.parse(text) as T;
+  return JSON.parse(text) as unknown;
 }
 
 export async function writeJson(filePath: string, value: unknown): Promise<void> {
