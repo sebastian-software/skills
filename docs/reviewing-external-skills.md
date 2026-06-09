@@ -77,6 +77,18 @@ under source-prefixed names:
 
 - `copy-editing` -> `marketingskills-copy-editing`
 - `copywriting` -> `marketingskills-copywriting`
+- `product-marketing` -> `marketingskills-product-marketing`
+- `marketing-plan` -> `marketingskills-marketing-plan`
+- `launch` -> `marketingskills-launch`
+- `pricing` -> `marketingskills-pricing`
+- `customer-research` -> `marketingskills-customer-research`
+- `competitor-profiling` -> `marketingskills-competitor-profiling`
+- `competitors` -> `marketingskills-competitors`
+- `content-strategy` -> `marketingskills-content-strategy`
+- `analytics` -> `marketingskills-analytics`
+- `cro` -> `marketingskills-cro`
+- `seo-audit` -> `marketingskills-seo-audit`
+- `ai-seo` -> `marketingskills-ai-seo`
 - `marketing-ideas` -> `marketingskills-marketing-ideas`
 - `marketing-psychology` -> `marketingskills-marketing-psychology`
 

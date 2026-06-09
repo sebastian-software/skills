@@ -52,6 +52,78 @@
           "rename": "source-prefix"
         },
         {
+          "path": "skills/product-marketing",
+          "name": "product-marketing",
+          "installName": "marketingskills-product-marketing",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/marketing-plan",
+          "name": "marketing-plan",
+          "installName": "marketingskills-marketing-plan",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/launch",
+          "name": "launch",
+          "installName": "marketingskills-launch",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/pricing",
+          "name": "pricing",
+          "installName": "marketingskills-pricing",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/customer-research",
+          "name": "customer-research",
+          "installName": "marketingskills-customer-research",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/competitor-profiling",
+          "name": "competitor-profiling",
+          "installName": "marketingskills-competitor-profiling",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/competitors",
+          "name": "competitors",
+          "installName": "marketingskills-competitors",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/content-strategy",
+          "name": "content-strategy",
+          "installName": "marketingskills-content-strategy",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/analytics",
+          "name": "analytics",
+          "installName": "marketingskills-analytics",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/cro",
+          "name": "cro",
+          "installName": "marketingskills-cro",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/seo-audit",
+          "name": "seo-audit",
+          "installName": "marketingskills-seo-audit",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/ai-seo",
+          "name": "ai-seo",
+          "installName": "marketingskills-ai-seo",
+          "rename": "source-prefix"
+        },
+        {
           "path": "skills/marketing-ideas",
           "name": "marketing-ideas",
           "installName": "marketingskills-marketing-ideas",

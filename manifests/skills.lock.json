@@ -11,11 +11,23 @@
       "included": [
         "marketingskills-copy-editing",
         "marketingskills-copywriting",
+        "marketingskills-product-marketing",
+        "marketingskills-marketing-plan",
+        "marketingskills-launch",
+        "marketingskills-pricing",
+        "marketingskills-customer-research",
+        "marketingskills-competitor-profiling",
+        "marketingskills-competitors",
+        "marketingskills-content-strategy",
+        "marketingskills-analytics",
+        "marketingskills-cro",
+        "marketingskills-seo-audit",
+        "marketingskills-ai-seo",
         "marketingskills-marketing-ideas",
         "marketingskills-marketing-psychology"
       ],
-      "integrity": "sha256-1b1b883f12df3d0ace51d1db5ccbb53cb716b6c88b9c24e9e50f916a7af0b1bc",
-      "updatedAt": "2026-06-09T08:58:59.558Z",
+      "integrity": "sha256-51efc619b082b87cb2e3198b737661be3f05d40f6d3853641ca3243f764a3f8d",
+      "updatedAt": "2026-06-09T09:06:02.313Z",
       "toolVersion": "0.0.0-alpha.0"
     },
     {

@@ -7,7 +7,7 @@ Skill path: skills/copywriting
 Upstream name: copywriting
 Install name: marketingskills-copywriting
 Rename policy: source-prefix
-Imported at: 2026-06-09T08:58:59.553Z
+Imported at: 2026-06-09T09:06:02.277Z
 Imported ref: main
 Resolved ref: 7f4af1ea8e7809e0142c55bf19243a706f539c25
 Reviewed by: unreviewed
