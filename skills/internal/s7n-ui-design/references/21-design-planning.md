@@ -43,3 +43,43 @@ Before choosing colors, spacing, shadows, or typography, decide:
 These decisions make the visual layer follow from the job. Do not start with
 card grids, hero templates, gradients, or animation before the surface has a
 clear job.
+
+## Compact Design Brief
+
+For ambiguous or net-new UI, write a compact brief before implementation. Keep
+it short enough to guide code, not long enough to become a separate project.
+
+Use this structure:
+
+```md
+## Design Brief
+
+- Surface: [what is being built]
+- Register: [product / brand / content-heavy]
+- Primary user and context: [who, where, frequency, state of mind]
+- Primary action: [the one thing the design must make easiest]
+- Layout strategy: [topology, hierarchy, density, major regions]
+- Interaction model: [form submit, inline edit, route, popover, modal, etc.]
+- Required states: [default, empty, loading, error, success, permissions]
+- Content and media: [real data, copy, images, diagrams, examples]
+- Constraints: [design system, framework, accessibility, i18n, performance]
+- Anti-goals: [wrong directions to avoid]
+```
+
+Write the brief in concrete nouns and decisions. "Modern and clean dashboard"
+is not a brief. "Dense product table for finance admins comparing 200 invoices;
+primary action is approving selected invoices; errors appear inline per row" is
+specific enough to shape UI.
+
+## Brief Quality Check
+
+The brief is ready when it answers:
+
+- What should be visually dominant?
+- What should be quiet?
+- What state is most likely to break the design?
+- Which existing components or tokens should be reused?
+- Which reference chapters should be loaded before implementation?
+
+If these answers are still vague, clarify before writing UI code. A precise
+brief is faster than rebuilding a generic first draft.
