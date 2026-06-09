@@ -27,6 +27,7 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 | Forms | [references/08-forms.md](references/08-forms.md) |
 | SEO for Frontend | [references/09-seo.md](references/09-seo.md) |
 | Design Registers | [references/20-design-registers.md](references/20-design-registers.md) |
+| Design Planning | [references/21-design-planning.md](references/21-design-planning.md) |
 
 ## Core Principles (ALWAYS Apply)
 
@@ -192,14 +193,15 @@ When creating UI code:
 
 1. Choose the design register first: product, brand, or content-heavy surface
 2. Discover the existing design system: tokens, shared components, CSS layers, spacing, typography, icon set, motion rules, and comparable screens
-3. Read the relevant reference files for detailed guidelines
-4. Apply ALL rules without exception
-5. Verify against the checklist above
-6. Use the predefined spacing scale (8pt increments)
-7. Use the colour palette structure from [references/03-colour.md](references/03-colour.md)
-8. Use the Popover API for tooltips, dropdowns, and menus (no JS library needed)
-9. Use `@starting-style` for CSS-only entry animations on dialogs and popovers
-10. Use the View Transition API for page transitions and shared element animations; always respect `prefers-reduced-motion`
+3. For net-new or ambiguous UI, plan the surface before writing code: goal, primary action, register, content, states, and constraints
+4. Read the relevant reference files for detailed guidelines
+5. Apply ALL rules without exception
+6. Verify against the checklist above
+7. Use the predefined spacing scale (8pt increments)
+8. Use the colour palette structure from [references/03-colour.md](references/03-colour.md)
+9. Use the Popover API for tooltips, dropdowns, and menus (no JS library needed)
+10. Use `@starting-style` for CSS-only entry animations on dialogs and popovers
+11. Use the View Transition API for page transitions and shared element animations; always respect `prefers-reduced-motion`
 
 ## Colour Palette Template (OKLCH)
 
