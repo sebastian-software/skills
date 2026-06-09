@@ -1,7 +1,7 @@
 ---
 name: s7n-ui-design
 description: |
-  Professional UI design guidelines for accessible, well-structured interfaces. Use when: writing CSS, HTML, or frontend component code; designing websites, apps, dashboards, or any web interface; reviewing or improving existing UI designs; making decisions about colour, typography, layout, spacing, buttons, or forms; ensuring WCAG 2.1 AA accessibility; creating design systems or component libraries. Covers OKLCH colour palettes, 8pt spacing grid, fluid typography with clamp(), container queries, subgrid, form validation patterns, button hierarchy, dark mode, reduced motion, SEO meta tags, and Core Web Vitals.
+  Professional UI design guidelines for accessible, well-structured interfaces. Use when: writing CSS, HTML, or frontend component code; designing websites, apps, dashboards, or any web interface; reviewing or improving existing UI designs; making decisions about colour, typography, layout, spacing, buttons, or forms; ensuring WCAG 2.1 AA accessibility; creating design systems or component libraries. Covers OKLCH colour palettes, spacing systems, fluid typography with clamp(), container queries, subgrid, form validation patterns, button hierarchy, dark mode, reduced motion, SEO meta tags, and Core Web Vitals.
 license: MIT
 metadata:
   author: sebastian-software
@@ -58,7 +58,7 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 ### 5. Create a Design System
 - Define predefined colour palette
 - Set typography scale
-- Use 8pt spacing increments: 8pt, 16pt, 24pt, 32pt, 48pt, 80pt
+- Use a consistent project spacing scale
 - Create reusable components
 
 ## Critical Rules (NEVER Violate)
@@ -225,7 +225,7 @@ When creating UI code:
 5. Apply ALL rules without exception
 6. Verify against the checklist above
 7. Before calling UI complete, pass the measurable quality gates or name the remaining risk explicitly
-8. Use the predefined spacing scale (8pt increments)
+8. Use the project's spacing scale consistently; when none exists, start from [references/04-layout-spacing.md](references/04-layout-spacing.md)
 9. Use the colour palette structure from [references/03-colour.md](references/03-colour.md)
 10. Use the Popover API for tooltips, dropdowns, and menus (no JS library needed)
 11. Use `@starting-style` for CSS-only entry animations on dialogs and popovers
@@ -254,7 +254,7 @@ Body:      16px / 24px line-height / regular
 Small:     14px / 20px line-height / regular
 ```
 
-## Spacing Scale (8pt Grid)
+## Default Spacing Scale
 
 ```
 XS:  8pt   - Closely related elements
@@ -264,3 +264,7 @@ L:   32pt  - Grid gutters, section gaps
 XL:  48pt  - Large section gaps
 XXL: 80pt  - Page section padding
 ```
+
+Use this scale as a starting point when a project has no established spacing
+tokens. Existing project tokens and design-system spacing conventions take
+precedence.
