@@ -6,26 +6,50 @@ This [Agent Skill](https://agentskills.io/) stops that cycle. Install it once, a
 
 Works with Claude Code, Cursor, GitHub Copilot, Windsurf, Gemini CLI, and any other agent that supports the [Agent Skills format](https://agentskills.io/specification).
 
-## How this differs from the frontend-design skill
+## Relationship to Anthropic's frontend-design skill
 
-Anthropic's [frontend-design](https://skills.sh/anthropics/skills/frontend-design) skill handles creative direction: picking a bold aesthetic, choosing distinctive fonts, avoiding generic "AI look" output. It's good at that.
+This skill is inspired by Anthropic's
+[frontend-design](https://skills.sh/anthropics/skills/frontend-design) skill.
+That skill's most important contribution is not a particular font, palette, or
+visual taste. It pushes agents to commit to a specific direction and avoid
+generic AI-looking output.
 
-It doesn't touch the technical layer. No contrast ratios, no spacing system, no form patterns, no accessibility rules, no SEO. A visually striking page that fails WCAG or ships without meta tags is still a problem.
+S7N UI Design keeps that ambition, but changes the operating model. The goal is
+not to make every interface louder, bolder, or more surprising after the fact.
+The goal is to make the first serious implementation more exact: correct
+register, clear primary action, realistic states, accessible interaction,
+coherent system usage, and a visual point of view that fits the product.
 
-This skill covers the engineering side. Concrete values, not creative direction:
+It is a Sebastian Software successor in the sense of design philosophy and
+implementation coverage, not an official continuation or vendored copy.
 
-| This skill | frontend-design |
-|---|---|
-| WCAG 2.1 AA contrast (4.5:1 text, 3:1 UI) | No contrast requirements |
-| OKLCH palettes, `light-dark()`, relative color syntax | "Cohesive palette" (no method specified) |
-| 8pt spacing grid, container queries, subgrid | "Generous negative space" (no system) |
-| Fluid typography with `clamp()`, type scale, vertical rhythm | "Choose distinctive fonts" (no sizing rules) |
-| Form validation, `:user-valid`/`:user-invalid`, field sizing | Not covered |
-| Button hierarchy, target sizes, destructive action patterns | Not covered |
-| Dark mode, reduced motion, screen reader support | Not covered |
-| SEO meta tags, JSON-LD, Core Web Vitals | Not covered |
+| Kept from the inspiration | Changed in this skill | Extended here |
+|---|---|---|
+| Avoid generic generated UI | Define the right register before styling | Product, brand, and content-heavy design registers |
+| Commit to a point of view | Make the point of view serve the user's task | Compact design briefs before implementation |
+| Use modern CSS deliberately | Prefer system fit over one-off spectacle | OKLCH, `light-dark()`, container queries, subgrid, popover, `inert`, View Transitions |
+| Treat typography, colour, space, motion, and copy as design decisions | Choose by role, audience, state, and context rather than taste labels | Detailed references for typography, colour, layout, forms, loading states, navigation, tables, i18n, SEO, and quality gates |
+| Reject obvious AI-output fingerprints | Diagnose whether the issue is register, hierarchy, media, density, or interaction model | Generic-output gates without numeric scores or polishing loops |
 
-They work together. Use frontend-design for the mood. Use this one to make sure the result actually works for every user.
+In short: Anthropic's skill is strongest as a creative prompt against generic
+output. This skill turns that impulse into a fuller design-and-implementation
+system for agents that ship real web interfaces.
+
+## Design stance
+
+The key question is not "how can this be polished?" It is:
+
+> What decision would make this interface impossible to confuse with a generic
+> category template, while still making the user's job easier?
+
+For product UI, the answer may be a clearer flow, denser comparison surface,
+better empty state, or more reliable interaction model. For brand UI, it may be
+a memorable visual signal, real imagery, typography with voice, or a committed
+palette. For content-heavy UI, it may be measure, rhythm, navigation, examples,
+and trust.
+
+Distinctiveness is useful only when it follows the brief. Decoration that
+arrives after the structure is wrong is not design quality.
 
 ## The problem
 
@@ -41,7 +65,7 @@ You can fix this per-prompt, but that gets old after the third time.
 
 ## What this changes
 
-The skill loads 10 reference files covering the decisions you'd otherwise make by hand:
+The skill loads focused reference files covering the decisions you'd otherwise make by hand:
 
 | Topic | What it handles |
 |-------|----------------|

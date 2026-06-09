@@ -14,6 +14,7 @@ right issue. Mark each category as `blocked`, `risky`, or `acceptable`.
 | Theming | Hard-coded colours break tokens, dark mode, contrast, or semantic state colours | Some one-off values need token consolidation | Tokens and semantic colours are used consistently |
 | State coverage | Missing empty, loading, error, success, disabled, or permission state for the core flow | Secondary states exist but need clearer copy or interaction detail | All states required by the brief are implemented in the real components |
 | Resilience | Perfect-data-only UI breaks with long text, empty values, permissions, offline/errors, or localisation | Some edge cases are known but bounded | Long text, missing data, error recovery, permission states, and i18n expansion are handled |
+| Specificity | The UI could belong to any product in the category, or uses obvious generated-output patterns | Some details are specific but the main layout, media, or interaction model is still generic | The dominant design decisions follow the brief, audience, content, and register |
 
 ## Interpretation
 
@@ -45,6 +46,29 @@ Check:
 Do not use this pass to change the design register, invent a new visual
 direction, or add decoration. If the pass reveals that the direction itself is
 wrong, return to the Design Readiness Check and revise the brief.
+
+## Generic Output Gate
+
+Use this gate to catch templated AI output without turning design into a
+polishing loop.
+
+Ask:
+
+- Would this screen still make sense if the brand name and colours were removed?
+  If yes, what product-specific structure, content, media, or interaction is
+  missing?
+- Does the layout come from the brief, or from a common category template such
+  as hero plus metrics plus repeated cards?
+- Is the memorable part useful to the user, or merely decorative?
+- Does the interface show real evidence when users need to inspect a product,
+  place, person, object, state, screenshot, diagram, or outcome?
+- Is restraint doing real work, or is it hiding an absent point of view?
+- Is boldness doing real work, or is it compensating for weak hierarchy and
+  content?
+
+Product UI can pass this gate by being extremely clear and quiet. Brand UI can
+pass by being memorable. Content-heavy UI can pass by being unusually readable
+and trustworthy. The standard is specificity, not intensity.
 
 ## Performance Design Check
 

@@ -150,6 +150,27 @@ was chosen by category reflex instead of product intent.
 If a failure mode appears, do not "polish" around it. Change the brief decision:
 register, hierarchy, media strategy, density, or interaction model.
 
+## Specificity Check
+
+Before implementation, ask what makes the design specific to this product,
+audience, and moment. The answer does not have to be loud.
+
+Good specificity can come from:
+
+- A product flow that exposes exactly the right next action and hides the rest.
+- A comparison surface tuned to the real data users scan.
+- An empty state that teaches the actual component in context.
+- A brand surface anchored by real product, place, person, object, or outcome
+  evidence.
+- A typographic, colour, spacing, or imagery decision that follows the brand
+  point of view rather than the category default.
+- A content-heavy surface whose navigation, examples, and reading rhythm make
+  the material easier to trust.
+
+If the only answer is "it looks polished", the direction is still too generic.
+Clarify register, audience, evidence, hierarchy, or interaction model before
+writing UI code.
+
 ## Earned Delight
 
 Plan delight only where the moment earns it. Delight should make the right
