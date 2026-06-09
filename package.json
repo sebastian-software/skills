@@ -1,0 +1,35 @@
+{
+  "name": "sebastian-software-skills",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm lint:oxlint && pnpm lint:eslint",
+    "lint:eslint": "eslint . --max-warnings=0",
+    "lint:oxlint": "oxlint -c oxlint.config.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "skill-sync": "tsx packages/skill-sync/src/cli.ts",
+    "agent:check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm build && pnpm test && pnpm skill-sync validate"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@11.5.2",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.12.4",
+    "eslint": "^10.4.0",
+    "eslint-config-setup": "^0.4.0",
+    "globals": "^17.6.0",
+    "jiti": "^2.7.0",
+    "oxlint": "^1.67.0",
+    "prettier": "^3.8.3",
+    "tsx": "^4.22.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.61.0"
+  }
+}

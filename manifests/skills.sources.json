@@ -1,0 +1,29 @@
+{
+  "internal": [
+    {
+      "id": "forschungszulage",
+      "repo": "https://github.com/sebastian-software/forschungszulage-skill",
+      "ref": "main",
+      "path": "."
+    },
+    {
+      "id": "effective-ui-design",
+      "repo": "https://github.com/sebastian-software/effective-ui-design-skill",
+      "ref": "main",
+      "path": "."
+    },
+    {
+      "id": "effective-german-typography",
+      "repo": "https://github.com/sebastian-software/effective-german-typography-skill",
+      "ref": "main",
+      "path": "."
+    },
+    {
+      "id": "effective-linkedin-posts",
+      "repo": "https://github.com/sebastian-software/effective-linkedin-posts",
+      "ref": "main",
+      "path": "."
+    }
+  ],
+  "external": []
+}

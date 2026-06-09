@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "generatedBy": "skill-sync",
+  "sources": [
+    {
+      "id": "effective-german-typography",
+      "kind": "internal",
+      "sourceUrl": "https://github.com/sebastian-software/effective-german-typography-skill",
+      "requestedRef": "main",
+      "resolvedRef": "61cd6b919b2946e4e86c35ecb7b4eedcf50f5a48",
+      "included": ["effective-german-typography"],
+      "integrity": "sha256-e0ffdb9b201b99ef3292363f8e9a7ff23b4ab94e9ff0e39d171adf478f1d1017",
+      "updatedAt": "2026-06-09T06:54:53.183Z",
+      "toolVersion": "0.0.0-alpha.0"
+    },
+    {
+      "id": "effective-linkedin-posts",
+      "kind": "internal",
+      "sourceUrl": "https://github.com/sebastian-software/effective-linkedin-posts",
+      "requestedRef": "main",
+      "resolvedRef": "9c3995a98d31685e5621fbcf23587570bf2b0284",
+      "included": ["linkedin-content"],
+      "integrity": "sha256-e9149e3b87fd563b6734b3f592bf0df220666df86ad5c7a77d0a8a88ac61cefc",
+      "updatedAt": "2026-06-09T06:54:53.735Z",
+      "toolVersion": "0.0.0-alpha.0"
+    },
+    {
+      "id": "effective-ui-design",
+      "kind": "internal",
+      "sourceUrl": "https://github.com/sebastian-software/effective-ui-design-skill",
+      "requestedRef": "main",
+      "resolvedRef": "5342f38cd3a61e78439d1fded67bb74f04db574a",
+      "included": ["effective-ui-design"],
+      "integrity": "sha256-a4f3869a8614a0cdc6e94de5e9da8e3ed3279f6bb372a17b3f8e45fecbac2367",
+      "updatedAt": "2026-06-09T06:54:52.629Z",
+      "toolVersion": "0.0.0-alpha.0"
+    },
+    {
+      "id": "forschungszulage",
+      "kind": "internal",
+      "sourceUrl": "https://github.com/sebastian-software/forschungszulage-skill",
+      "requestedRef": "main",
+      "resolvedRef": "f04b38fccd1dbe23214193b45254609dc1387735",
+      "included": ["forschungszulage"],
+      "integrity": "sha256-2be60d1dee94bc6b3f63840907ba07da4c5a281f2f4aa66a54f107944b27d1ef",
+      "updatedAt": "2026-06-09T06:54:52.038Z",
+      "toolVersion": "0.0.0-alpha.0"
+    }
+  ]
+}
