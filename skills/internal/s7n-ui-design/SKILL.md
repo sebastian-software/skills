@@ -28,6 +28,7 @@ Enforces professional UI design guidelines for accessible, well-structured inter
 | SEO for Frontend | [references/09-seo.md](references/09-seo.md) |
 | Design Registers | [references/20-design-registers.md](references/20-design-registers.md) |
 | Design Planning | [references/21-design-planning.md](references/21-design-planning.md) |
+| UI Quality Gates | [references/22-ui-quality-gates.md](references/22-ui-quality-gates.md) |
 
 ## Core Principles (ALWAYS Apply)
 
@@ -223,11 +224,12 @@ When creating UI code:
 4. Read the relevant reference files for detailed guidelines
 5. Apply ALL rules without exception
 6. Verify against the checklist above
-7. Use the predefined spacing scale (8pt increments)
-8. Use the colour palette structure from [references/03-colour.md](references/03-colour.md)
-9. Use the Popover API for tooltips, dropdowns, and menus (no JS library needed)
-10. Use `@starting-style` for CSS-only entry animations on dialogs and popovers
-11. Use the View Transition API for page transitions and shared element animations; always respect `prefers-reduced-motion`
+7. Before calling UI complete, pass the measurable quality gates or name the remaining risk explicitly
+8. Use the predefined spacing scale (8pt increments)
+9. Use the colour palette structure from [references/03-colour.md](references/03-colour.md)
+10. Use the Popover API for tooltips, dropdowns, and menus (no JS library needed)
+11. Use `@starting-style` for CSS-only entry animations on dialogs and popovers
+12. Use the View Transition API for page transitions and shared element animations; always respect `prefers-reduced-motion`
 
 ## Colour Palette Template (OKLCH)
 
