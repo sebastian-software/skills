@@ -1,6 +1,8 @@
 import path from "node:path";
 
 import type {
+  ExternalInclude,
+  ExternalRenamePolicy,
   ExternalSource,
   InternalSource,
   LockEntry,
@@ -11,6 +13,20 @@ import type {
 
 import { SkillSyncError } from "./errors.js";
 import { readJson, writeJson } from "./fs.js";
+
+interface ExternalOptionalsInput {
+  context: string;
+  source: ExternalSource;
+  sourcePath: string;
+  value: Record<string, unknown>;
+}
+
+interface ExternalIncludesInput {
+  context: string;
+  key: string;
+  sourcePath: string;
+  value: Record<string, unknown>;
+}
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -39,28 +55,19 @@ function readOptionalString(
   return field;
 }
 
-function readOptionalStringArray(
+function readOptionalRenamePolicy(
   value: Record<string, unknown>,
   key: string,
   context: string,
-): string[] | undefined {
+): ExternalRenamePolicy | undefined {
   const field = value[key];
   if (field === undefined) {
     return undefined;
   }
-  if (!Array.isArray(field)) {
-    throw new SkillSyncError(`${context}.${key} must be an array of strings`);
+  if (field !== "source-prefix") {
+    throw new SkillSyncError(`${context}.${key} must be "source-prefix"`);
   }
-
-  const values: string[] = [];
-  for (const item of field) {
-    if (typeof item !== "string") {
-      throw new SkillSyncError(`${context}.${key} must be an array of strings`);
-    }
-    values.push(item);
-  }
-
-  return values;
+  return field;
 }
 
 function parseInternalSource(value: unknown, index: number): InternalSource {
@@ -93,33 +100,81 @@ function parseExternalSource(value: unknown, index: number): ExternalSource {
     throw new SkillSyncError(`${context}.vendor must be a boolean`);
   }
 
-  return withExternalOptionals(
-    {
+  const sourcePath = readOptionalString(value, "path", context) ?? ".";
+  return withExternalOptionals({
+    source: {
       id: readString(value, "id", context),
       type,
       repo: readString(value, "repo", context),
       ref: readString(value, "ref", context),
-      path: readOptionalString(value, "path", context) ?? ".",
+      path: sourcePath,
       vendor: vendor === true,
     },
     value,
     context,
-  );
+    sourcePath,
+  });
 }
 
-function withExternalOptionals(
-  source: ExternalSource,
-  value: Record<string, unknown>,
-  context: string,
-): ExternalSource {
-  const include = readOptionalStringArray(value, "include", context);
-  const license = readOptionalString(value, "license", context);
-  const reviewer = readOptionalString(value, "reviewer", context);
+function withExternalOptionals(input: ExternalOptionalsInput): ExternalSource {
+  const include = readOptionalExternalIncludes({
+    value: input.value,
+    key: "include",
+    context: input.context,
+    sourcePath: input.sourcePath,
+  });
+  const license = readOptionalString(input.value, "license", input.context);
+  const reviewer = readOptionalString(input.value, "reviewer", input.context);
   return {
-    ...source,
+    ...input.source,
     ...(include === undefined ? {} : { include }),
     ...(license === undefined ? {} : { license }),
     ...(reviewer === undefined ? {} : { reviewer }),
+  };
+}
+
+function readOptionalExternalIncludes(input: ExternalIncludesInput): ExternalInclude[] | undefined {
+  const field = input.value[input.key];
+  if (field === undefined) {
+    return undefined;
+  }
+  if (!Array.isArray(field)) {
+    throw new SkillSyncError(`${input.context}.${input.key} must be an array`);
+  }
+
+  return field.map((item, index) =>
+    parseExternalInclude(item, `${input.context}.${input.key}[${index}]`, input.sourcePath),
+  );
+}
+
+function parseExternalInclude(
+  value: unknown,
+  context: string,
+  sourcePath: string,
+): ExternalInclude {
+  if (typeof value === "string" && value.trim() !== "") {
+    return {
+      installName: value,
+      name: value,
+      path: sourcePath,
+    };
+  }
+
+  if (!isRecord(value)) {
+    throw new SkillSyncError(`${context} must be a string or object`);
+  }
+
+  const name = readString(value, "name", context);
+  const installName = readOptionalString(value, "installName", context) ?? name;
+  const rename = readOptionalRenamePolicy(value, "rename", context);
+  if (installName !== name && rename === undefined) {
+    throw new SkillSyncError(`${context}.rename is required when installName differs from name`);
+  }
+  return {
+    name,
+    installName,
+    path: readString(value, "path", context),
+    ...(rename === undefined ? {} : { rename }),
   };
 }
 

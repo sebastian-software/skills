@@ -13,9 +13,10 @@ import type {
 
 import { SkillSyncError } from "./errors.js";
 import { run } from "./exec.js";
+import { updateExternalSource } from "./external.js";
 import { parseSkillFrontmatter } from "./frontmatter.js";
 import { copyDir, emptyDir, hashDirectory, pathExists } from "./fs.js";
-import { cloneGitRef, resolveGitRef } from "./git.js";
+import { cloneGitRef } from "./git.js";
 import { readLockfile, readSourcesManifest, upsertLockEntry, writeLockfile } from "./manifests.js";
 import { getRepoPaths } from "./paths.js";
 import {
@@ -36,13 +37,6 @@ interface LockEntryInput {
   source: ExternalSource | InternalSource;
 }
 
-interface VendorExternalInput {
-  checkoutDir: string;
-  paths: RepoPaths;
-  resolvedRef: string;
-  source: ExternalSource;
-}
-
 function ok(warnings: string[] = []): CommandResult {
   return { ok: true, errors: [], warnings };
 }
@@ -61,7 +55,17 @@ function sourcePathIsSafe(sourcePath: string): boolean {
   );
 }
 
-function validateSourcePaths(sources: {
+function installNameIsSafe(installName: string): boolean {
+  return (
+    installName !== "" &&
+    !path.isAbsolute(installName) &&
+    !installName.includes("/") &&
+    !installName.includes("\\") &&
+    installName !== ".."
+  );
+}
+
+function validateSourceRootPaths(sources: {
   internal: InternalSource[];
   external: ExternalSource[];
 }): void {
@@ -73,6 +77,30 @@ function validateSourcePaths(sources: {
       );
     }
   }
+}
+
+function validateExternalIncludes(sources: ExternalSource[]): void {
+  for (const source of sources) {
+    for (const include of source.include ?? []) {
+      if (!sourcePathIsSafe(include.path)) {
+        throw new SkillSyncError(
+          `${source.id}.include path must be relative and stay inside the source repo`,
+        );
+      }
+
+      if (!installNameIsSafe(include.installName)) {
+        throw new SkillSyncError(`${source.id}.include installName must be a directory name`);
+      }
+    }
+  }
+}
+
+function validateSourcePaths(sources: {
+  internal: InternalSource[];
+  external: ExternalSource[];
+}): void {
+  validateSourceRootPaths(sources);
+  validateExternalIncludes(sources.external);
 }
 
 async function validateSkills(paths: RepoPaths): Promise<void> {
@@ -186,76 +214,6 @@ export async function importInternalCommand(repoRoot?: string): Promise<string[]
 
   await writeLockfile(paths, lockfile);
   return imported;
-}
-
-function sourceMarkdown(source: ExternalSource, resolvedRef: string): string {
-  return `# Source
-
-Original source: ${source.repo}
-Source type: ${source.type}
-Imported at: ${new Date().toISOString()}
-Imported ref: ${source.ref}
-Resolved ref: ${resolvedRef}
-Reviewed by: ${source.reviewer ?? "unreviewed"}
-Local modifications: no
-License: ${source.license ?? "unknown"}
-`;
-}
-
-async function vendorExternalSource(
-  input: VendorExternalInput,
-): Promise<{ included: string[]; integrity: string }> {
-  const sourceRoot = path.join(input.checkoutDir, input.source.path ?? ".");
-  const destination = path.join(input.paths.vendorSkillsDir, input.source.id);
-  const included = await copySkillSource(sourceRoot, destination);
-  await fs.writeFile(
-    path.join(destination, "SOURCE.md"),
-    sourceMarkdown(input.source, input.resolvedRef),
-  );
-  const integrity = await hashDirectory(destination);
-  return { included, integrity };
-}
-
-async function updateExternalSource(
-  paths: RepoPaths,
-  lockfile: SkillsLock,
-  source: ExternalSource,
-): Promise<SkillsLock> {
-  if (source.vendor === true) {
-    const checkout = await cloneGitRef(source.repo, source.ref);
-    try {
-      const { included, integrity } = await vendorExternalSource({
-        checkoutDir: checkout.dir,
-        paths,
-        source,
-        resolvedRef: checkout.resolvedRef,
-      });
-      return upsertLockEntry(
-        lockfile,
-        lockEntryForImport({
-          included,
-          integrity,
-          kind: "external",
-          resolvedRef: checkout.resolvedRef,
-          source,
-        }),
-      );
-    } finally {
-      await checkout.cleanup();
-    }
-  }
-
-  const resolvedRef = await resolveGitRef(source.repo, source.ref);
-  return upsertLockEntry(
-    lockfile,
-    lockEntryForImport({
-      included: source.include ?? [],
-      integrity: `git-${resolvedRef}`,
-      kind: "external",
-      resolvedRef,
-      source,
-    }),
-  );
 }
 
 export async function updateExternalCommand(repoRoot?: string): Promise<string[]> {

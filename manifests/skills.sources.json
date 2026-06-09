@@ -31,5 +31,39 @@
       "path": "."
     }
   ],
-  "external": []
+  "external": [
+    {
+      "id": "marketingskills",
+      "type": "git",
+      "repo": "https://github.com/coreyhaines31/marketingskills.git",
+      "ref": "main",
+      "vendor": true,
+      "include": [
+        {
+          "path": "skills/copy-editing",
+          "name": "copy-editing",
+          "installName": "marketingskills-copy-editing",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/copywriting",
+          "name": "copywriting",
+          "installName": "marketingskills-copywriting",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/marketing-ideas",
+          "name": "marketing-ideas",
+          "installName": "marketingskills-marketing-ideas",
+          "rename": "source-prefix"
+        },
+        {
+          "path": "skills/marketing-psychology",
+          "name": "marketing-psychology",
+          "installName": "marketingskills-marketing-psychology",
+          "rename": "source-prefix"
+        }
+      ]
+    }
+  ]
 }

@@ -3,6 +3,33 @@
   "generatedBy": "skill-sync",
   "sources": [
     {
+      "id": "marketingskills",
+      "kind": "external",
+      "sourceUrl": "https://github.com/coreyhaines31/marketingskills.git",
+      "requestedRef": "main",
+      "resolvedRef": "7f4af1ea8e7809e0142c55bf19243a706f539c25",
+      "included": [
+        "marketingskills-copy-editing",
+        "marketingskills-copywriting",
+        "marketingskills-marketing-ideas",
+        "marketingskills-marketing-psychology"
+      ],
+      "integrity": "sha256-1b1b883f12df3d0ace51d1db5ccbb53cb716b6c88b9c24e9e50f916a7af0b1bc",
+      "updatedAt": "2026-06-09T08:58:59.558Z",
+      "toolVersion": "0.0.0-alpha.0"
+    },
+    {
+      "id": "s7n-forschungszulage",
+      "kind": "internal",
+      "sourceUrl": "https://github.com/sebastian-software/forschungszulage-skill",
+      "requestedRef": "main",
+      "resolvedRef": "f04b38fccd1dbe23214193b45254609dc1387735",
+      "included": ["s7n-forschungszulage"],
+      "integrity": "sha256-1d88146838c235cb9d57a5256e6ce074045e5c9bdbd3a09b64800dd34b54bff3",
+      "updatedAt": "2026-06-09T08:19:51.000Z",
+      "toolVersion": "0.0.0-alpha.0"
+    },
+    {
       "id": "s7n-german-typography",
       "kind": "internal",
       "sourceUrl": "https://github.com/sebastian-software/effective-german-typography-skill",
@@ -54,17 +81,6 @@
       "resolvedRef": "bf4d6411c7a508c91d1c2f87e4531bb95135ffc7",
       "included": ["s7n-ui-design"],
       "integrity": "sha256-e479c6f57d4ac2bd7171a6067840b3b40ab4dd24f8905ff70de6cfaa170eda14",
-      "updatedAt": "2026-06-09T08:19:51.000Z",
-      "toolVersion": "0.0.0-alpha.0"
-    },
-    {
-      "id": "s7n-forschungszulage",
-      "kind": "internal",
-      "sourceUrl": "https://github.com/sebastian-software/forschungszulage-skill",
-      "requestedRef": "main",
-      "resolvedRef": "f04b38fccd1dbe23214193b45254609dc1387735",
-      "included": ["s7n-forschungszulage"],
-      "integrity": "sha256-1d88146838c235cb9d57a5256e6ce074045e5c9bdbd3a09b64800dd34b54bff3",
       "updatedAt": "2026-06-09T08:19:51.000Z",
       "toolVersion": "0.0.0-alpha.0"
     }

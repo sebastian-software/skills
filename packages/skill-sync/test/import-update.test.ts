@@ -8,7 +8,12 @@ import {
   readLockfile,
   updateExternalCommand,
 } from "../src/index.js";
-import { createGitSkillRepo, createRepoRoot, writeJson } from "./helpers.js";
+import {
+  createGitSkillCollection,
+  createGitSkillRepo,
+  createRepoRoot,
+  writeJson,
+} from "./helpers.js";
 
 describe("source import and update commands", () => {
   it("imports internal git skill sources and writes lock entries", async () => {
@@ -65,5 +70,47 @@ describe("source import and update commands", () => {
     await expect(
       fs.stat(path.join(repoRoot, "skills", "vendor", "external-source")),
     ).rejects.toThrow();
+  });
+
+  it("vendors selected external skills with explicit source-prefixed names", async () => {
+    const repoRoot = await createRepoRoot();
+    const sourceRepo = await createGitSkillCollection({
+      "skills/copywriting": "copywriting",
+      "skills/marketing-ideas": "marketing-ideas",
+    });
+    await writeJson(path.join(repoRoot, "manifests", "skills.sources.json"), {
+      internal: [],
+      external: [
+        {
+          id: "marketingskills",
+          type: "git",
+          repo: sourceRepo,
+          ref: "main",
+          vendor: true,
+          include: [
+            {
+              path: "skills/copywriting",
+              name: "copywriting",
+              installName: "marketingskills-copywriting",
+              rename: "source-prefix",
+            },
+          ],
+        },
+      ],
+    });
+
+    const updated = await updateExternalCommand(repoRoot);
+    const paths = getRepoPaths(repoRoot);
+    const lockfile = await readLockfile(paths);
+    const entry = lockfile.sources.find((source) => source.id === "marketingskills");
+    const skillRoot = path.join(paths.vendorSkillsDir, "marketingskills-copywriting");
+    const skillFile = await fs.readFile(path.join(skillRoot, "SKILL.md"), "utf8");
+
+    expect(updated).toStrictEqual(["marketingskills"]);
+    expect(entry?.included).toStrictEqual(["marketingskills-copywriting"]);
+    expect(skillFile).toContain("name: marketingskills-copywriting");
+    await expect(fs.readFile(path.join(skillRoot, "SOURCE.md"), "utf8")).resolves.toContain(
+      "Upstream name: copywriting",
+    );
   });
 });

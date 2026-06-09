@@ -9,13 +9,22 @@ export interface InternalSource {
   path?: string;
 }
 
+export type ExternalRenamePolicy = "source-prefix";
+
+export interface ExternalInclude {
+  installName: string;
+  name: string;
+  path: string;
+  rename?: ExternalRenamePolicy;
+}
+
 export interface ExternalSource {
   id: string;
   type: "git";
   repo: string;
   ref: string;
   path?: string;
-  include?: string[];
+  include?: ExternalInclude[];
   vendor?: boolean;
   license?: string;
   reviewer?: string;

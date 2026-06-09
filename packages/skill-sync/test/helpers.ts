@@ -59,11 +59,24 @@ export async function createRepoRoot(): Promise<string> {
 export async function createGitSkillRepo(skillName: string): Promise<string> {
   const repoRoot = await makeTempDir("skill-sync-source-");
   await writeSkill(repoRoot, skillName);
+  await commitAll(repoRoot);
+  return repoRoot;
+}
+
+export async function createGitSkillCollection(skills: Record<string, string>): Promise<string> {
+  const repoRoot = await makeTempDir("skill-sync-source-");
+  for (const [skillPath, skillName] of Object.entries(skills)) {
+    await writeSkill(path.join(repoRoot, skillPath), skillName);
+  }
+  await commitAll(repoRoot);
+  return repoRoot;
+}
+
+async function commitAll(repoRoot: string): Promise<void> {
   await runGit(["init", "--initial-branch=main"], repoRoot);
   await runGit(["add", "."], repoRoot);
   await runGit(
     ["-c", "user.email=test@example.com", "-c", "user.name=Test User", "commit", "-m", "initial"],
     repoRoot,
   );
-  return repoRoot;
 }
