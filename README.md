@@ -42,6 +42,7 @@ Current internal skills:
 - `s7n-german-typography`
 - `s7n-linkedin-posts`
 - `s7n-print-design`
+- `s7n-svg-textures`
 - `s7n-ui-design`
 
 See `docs/authoring-skills.md`, `docs/sync-workflow.md`,

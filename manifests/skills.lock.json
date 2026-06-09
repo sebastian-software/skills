@@ -36,6 +36,17 @@
       "toolVersion": "0.0.0-alpha.0"
     },
     {
+      "id": "s7n-svg-textures",
+      "kind": "internal",
+      "sourceUrl": "local:/Users/sebastian/Workspace/svg-textures",
+      "requestedRef": "local-import",
+      "resolvedRef": "local-import-2026-06-09",
+      "included": ["s7n-svg-textures"],
+      "integrity": "sha256-5bd6b8fa58f5410b7f9c5ebdc1136a0b35376a797ee0e9c97b51e10d7e2e5091",
+      "updatedAt": "2026-06-09T08:23:28.000Z",
+      "toolVersion": "0.0.0-alpha.0"
+    },
+    {
       "id": "s7n-ui-design",
       "kind": "internal",
       "sourceUrl": "https://github.com/sebastian-software/effective-ui-design-skill",
