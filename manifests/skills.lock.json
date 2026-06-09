@@ -40,10 +40,10 @@
       "kind": "internal",
       "sourceUrl": "https://github.com/sebastian-software/effective-ui-design-skill",
       "requestedRef": "main",
-      "resolvedRef": "5342f38cd3a61e78439d1fded67bb74f04db574a",
+      "resolvedRef": "bf4d6411c7a508c91d1c2f87e4531bb95135ffc7",
       "included": ["effective-ui-design"],
       "integrity": "sha256-a1469215f801eab1f5b1edef8796271f871a5f354b4c135f019d8487719d9874",
-      "updatedAt": "2026-06-09T08:04:12.000Z",
+      "updatedAt": "2026-06-09T08:12:09.000Z",
       "toolVersion": "0.0.0-alpha.0"
     },
     {
