@@ -6,13 +6,19 @@ This [Agent Skill](https://agentskills.io/) stops that cycle. Install it once, a
 
 Works with Claude Code, Cursor, GitHub Copilot, Windsurf, Gemini CLI, and any other agent that supports the [Agent Skills format](https://agentskills.io/specification).
 
-## Relationship to Anthropic's frontend-design skill
+## Relationship to Anthropic frontend-design and Impeccable
 
 This skill is inspired by Anthropic's
 [frontend-design](https://skills.sh/anthropics/skills/frontend-design) skill.
 That skill's most important contribution is not a particular font, palette, or
 visual taste. It pushes agents to commit to a specific direction and avoid
 generic AI-looking output.
+
+It also stands on strong shoulders from Paul Bakaus'
+[Impeccable](https://github.com/pbakaus/impeccable), which expands frontend
+design skills into a richer language for shaping, auditing, polishing, adapting,
+and hardening real interfaces. Impeccable is especially valuable as a vocabulary
+and workflow system for live iteration in production codebases.
 
 S7N UI Design keeps that ambition, but changes the operating model. The goal is
 not to make every interface louder, bolder, or more surprising after the fact.
@@ -23,17 +29,20 @@ coherent system usage, and a visual point of view that fits the product.
 It is a Sebastian Software successor in the sense of design philosophy and
 implementation coverage, not an official continuation or vendored copy.
 
-| Kept from the inspiration | Changed in this skill | Extended here |
+| Kept from the inspirations | Changed in this skill | Extended here |
 |---|---|---|
 | Avoid generic generated UI | Define the right register before styling | Product, brand, and content-heavy design registers |
 | Commit to a point of view | Make the point of view serve the user's task | Compact design briefs before implementation |
+| Use design vocabulary to direct agents | Prefer upfront decisions over repeated command-driven polishing | Specificity checks, generic-output gates, and brief-driven implementation |
 | Use modern CSS deliberately | Prefer system fit over one-off spectacle | OKLCH, `light-dark()`, container queries, subgrid, popover, `inert`, View Transitions |
 | Treat typography, colour, space, motion, and copy as design decisions | Choose by role, audience, state, and context rather than taste labels | Detailed references for typography, colour, layout, forms, loading states, navigation, tables, i18n, SEO, and quality gates |
 | Reject obvious AI-output fingerprints | Diagnose whether the issue is register, hierarchy, media, density, or interaction model | Generic-output gates without numeric scores or polishing loops |
 
 In short: Anthropic's skill is strongest as a creative prompt against generic
-output. This skill turns that impulse into a fuller design-and-implementation
-system for agents that ship real web interfaces.
+output. Impeccable shows how much leverage a design vocabulary can give agents
+inside real projects. This skill turns those inspirations into a fuller
+design-and-implementation system for agents that should build the right
+interface earlier, not merely improve a weak first draft.
 
 ## Design stance
 
