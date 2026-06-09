@@ -94,6 +94,32 @@ dialog.addEventListener("close", () => {
 
 **Sources:** [Hidde de Vries -- Dialog, Modal, Popover Differences](https://hidde.blog/dialog-modal-popover-differences/), [Frontend Masters -- Dialog vs Popovers](https://frontendmasters.com/blog/whats-the-difference-between-htmls-dialog-element-and-popovers/), [CSS-Tricks -- Popovers and Dialogs](https://css-tricks.com/clarifying-the-relationship-between-popovers-and-dialogs/)
 
+## Overlay Positioning and Clipping
+
+Dropdowns, menus, combobox lists, tooltips, and context menus must escape
+ancestor clipping. A menu positioned with `position: absolute` inside a card,
+table, dialog article, or panel with `overflow: hidden`, `overflow: auto`,
+`contain`, `transform`, or a local stacking context will be clipped or layered
+incorrectly.
+
+**Use one of these patterns:**
+
+- Popover API for simple top-layer overlays with light dismiss.
+- Popover plus CSS Anchor Positioning when supported.
+- `position: fixed` with coordinates from the trigger's bounding rect.
+- A framework portal/teleport to render the overlay near `document.body`.
+
+**Avoid:**
+
+- Menus nested inside scrollable table cells.
+- Tooltips hidden by card overflow.
+- Z-index escalation (`9999`) to fight a clipping ancestor. Z-index cannot
+  escape overflow clipping.
+- Overlay dimensions that are not checked against viewport edges.
+
+Every overlay needs an edge strategy: flip, shift, constrain height, or open in
+a different direction.
+
 ## Focus Management
 
 ### Native Focus Behaviour (with `.showModal()`)
