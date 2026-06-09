@@ -67,6 +67,22 @@ Cognitive load = amount of brain power required to use an interface.
 
 A system of predefined options and guidelines for efficient design decisions.
 
+### Discover the Existing System First
+
+Before adding or changing UI, inspect the project for existing decisions:
+
+- Design tokens: color, typography, spacing, radius, elevation, motion
+- Shared components: buttons, inputs, dialogs, navigation, tables, empty states
+- CSS architecture: cascade layers, utility conventions, component boundaries
+- Interaction patterns: inline edit vs modal, explicit save vs autosave, toast vs
+  inline feedback
+- Comparable screens: how neighbouring product areas solve the same problem
+
+When a design system exists, extend it deliberately. Do not create a local
+one-off value when a token already exists. Do not rebuild a component that is
+already available. If the system is missing a needed token or component, name
+that gap and add the smallest reusable piece that fits the existing structure.
+
 ### 1. Set Predefined Style Options
 
 **Colour Options (Colour Palette):**

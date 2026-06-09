@@ -191,14 +191,15 @@ Before finalizing any UI design:
 When creating UI code:
 
 1. Choose the design register first: product, brand, or content-heavy surface
-2. Read the relevant reference files for detailed guidelines
-3. Apply ALL rules without exception
-4. Verify against the checklist above
-5. Use the predefined spacing scale (8pt increments)
-6. Use the colour palette structure from [references/03-colour.md](references/03-colour.md)
-7. Use the Popover API for tooltips, dropdowns, and menus (no JS library needed)
-8. Use `@starting-style` for CSS-only entry animations on dialogs and popovers
-9. Use the View Transition API for page transitions and shared element animations; always respect `prefers-reduced-motion`
+2. Discover the existing design system: tokens, shared components, CSS layers, spacing, typography, icon set, motion rules, and comparable screens
+3. Read the relevant reference files for detailed guidelines
+4. Apply ALL rules without exception
+5. Verify against the checklist above
+6. Use the predefined spacing scale (8pt increments)
+7. Use the colour palette structure from [references/03-colour.md](references/03-colour.md)
+8. Use the Popover API for tooltips, dropdowns, and menus (no JS library needed)
+9. Use `@starting-style` for CSS-only entry animations on dialogs and popovers
+10. Use the View Transition API for page transitions and shared element animations; always respect `prefers-reduced-motion`
 
 ## Colour Palette Template (OKLCH)
 
