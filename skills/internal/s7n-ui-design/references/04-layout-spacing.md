@@ -101,6 +101,26 @@ Quick test: Squint at your design (or blur/step back).
 - Tell what most important elements are
 - Recognise what interface is for
 
+### Diagnose the Layout Problem
+
+Before adding decoration or containers, name the structural problem:
+
+- **Rhythm:** spacing has no predictable beat, so the eye cannot move through
+  the surface smoothly.
+- **Density:** the amount of information per viewport is wrong for the user's
+  task, either too sparse for comparison or too compressed for comprehension.
+- **Hierarchy:** the primary object, action, or next step is not dominant within
+  a quick scan.
+- **Grouping:** related elements are not visually connected, or unrelated
+  elements appear connected.
+- **Container overuse:** borders, cards, shadows, and panels are carrying layout
+  because spacing, alignment, and headings are not doing enough work.
+
+Fix the named problem directly. If hierarchy is weak, make the important thing
+clearer; do not add a card around everything. If density is wrong, change the
+layout topology, row height, disclosure, or visible fields before changing
+surface styling.
+
 ## Use Depth to Create Visual Hierarchy
 
 **Elevation:**

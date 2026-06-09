@@ -49,20 +49,61 @@ launch pages, and other surfaces where the first impression is the deliverable.
 **Goal:** distinctiveness with intent. The design should communicate a specific
 position, audience, and atmosphere, not simply look polished.
 
+### Brand Point of View Before Style
+
+Before choosing fonts, colours, imagery, or section shapes, decide what the
+brand surface needs to say:
+
+- **Audience:** who should feel directly addressed, and who is intentionally
+  less central?
+- **Voice:** what should the brand sound and feel like in concrete terms, not
+  vague labels like modern, premium, technical, or elegant?
+- **Category expectation:** what does this category normally look like, and
+  which expectations should be honoured, bent, or rejected?
+- **Memorable signal:** what single visual, typographic, spatial, copy, or media
+  decision should make the surface recognisable?
+- **Evidence:** what real product, person, place, object, screenshot, diagram,
+  or outcome can make the brand specific instead of decorative?
+
+A brand surface can be restrained, loud, editorial, playful, severe, warm, or
+precise. The important part is that the style follows a point of view, not a
+category reflex.
+
 **Default choices:**
 
 - Pick a colour strategy deliberately: restrained, committed, full palette, or
   drenched.
-- Let typography carry voice when the brand needs it. A single family is fine
-  when chosen deliberately; a second family is useful only when it creates real
-  contrast.
-- Use imagery when the subject implies a physical object, place, person,
-  product, venue, or visual outcome.
+- Choose typography by role and brand voice. A single family is fine when
+  chosen deliberately; a second family is useful only when it creates real
+  contrast in voice, hierarchy, or reading mode.
+- Use real imagery or credible visual evidence when the subject is physical,
+  visual, place-based, product-based, or person-led. Avoid replacing the actual
+  subject with abstract decoration when users need to understand what is being
+  offered.
 - Let sections vary in rhythm and composition when the narrative earns it.
 - Use motion as art direction when it strengthens the story and still respects
   reduced motion.
 - Let delight carry brand voice through copy, imagery, transitions, discovery,
   and details when those choices serve the story.
+
+### Avoid Category Reflexes
+
+Do not derive style directly from the category. The first expected look is often
+only a starting point:
+
+- A developer tool does not automatically need a dark terminal aesthetic.
+- A finance surface does not automatically need blue, dense tables, and stock
+  photography.
+- A wellness brand does not automatically need pale neutrals, soft gradients,
+  and rounded cards.
+- An AI product does not automatically need purple-blue gradients, glowing
+  abstract shapes, or synthetic interface mockups.
+- A luxury or craft brand does not automatically need high-contrast serifs,
+  oversized whitespace, and monochrome art direction.
+
+If the obvious category treatment is right, use it intentionally and sharpen the
+details. If it is only familiar, choose a more specific direction from audience,
+voice, evidence, and the memorable signal.
 
 **Common brand failures:**
 

@@ -19,15 +19,17 @@ question when the information cannot be inferred.
 3. **Primary action:** What is the one action or understanding the design must
    make easiest?
 4. **Register:** Is this product, brand, or content-heavy UI?
-5. **Content:** What data, text, media, or controls must appear? What are
+5. **Brand point of view:** For brand surfaces, what should make this feel
+   specific rather than like the category default?
+6. **Content:** What data, text, media, or controls must appear? What are
    realistic minimum, typical, and maximum cases?
-6. **States:** What must happen for default, empty, loading, error, success, and
+7. **States:** What must happen for default, empty, loading, error, success, and
    permission-limited states?
-7. **Constraints:** Which design system, components, framework, performance,
+8. **Constraints:** Which design system, components, framework, performance,
    accessibility, i18n, or browser constraints already exist?
-8. **Context:** Which devices, inputs, orientation, connection, and physical
+9. **Context:** Which devices, inputs, orientation, connection, and physical
    usage conditions matter?
-9. **Anti-goals:** What would be a wrong direction for this audience or product?
+10. **Anti-goals:** What would be a wrong direction for this audience or product?
 
 ## Decide Before Styling
 
@@ -45,6 +47,25 @@ Before choosing colours, spacing, shadows, or typography, decide:
 These decisions make the visual layer follow from the job. Do not start with
 card grids, hero templates, gradients, or animation before the surface has a
 clear job.
+
+## Brand Point of View
+
+For brand surfaces, decide the point of view before layout and styling:
+
+- Audience and promise: who is being addressed, and what should they believe
+  after the first viewport?
+- Voice: choose concrete language such as precise, physical, rebellious,
+  editorial, calm, generous, technical, or ceremonial; avoid empty style labels.
+- Category reflex to avoid: name the expected palette, type, layout, imagery, or
+  hero pattern that would make the surface feel interchangeable.
+- Primary evidence: identify the product, place, person, object, screenshot,
+  diagram, or real outcome that should carry credibility.
+- Memorable signal: choose one dominant design move the rest of the surface can
+  support.
+
+If the point of view is unknown, keep the surface restrained and ask the
+smallest question that reveals audience, voice, evidence, or anti-goal. Do not
+fill the gap with a generic category template.
 
 ## Context Adaptation
 
@@ -165,6 +186,7 @@ Use this structure:
 - Register: [product / brand / content-heavy]
 - Primary user and context: [who, where, frequency, state of mind]
 - Primary action: [the one thing the design must make easiest]
+- Brand point of view: [audience, voice, category reflex to avoid, memorable signal; omit when not relevant]
 - Layout strategy: [topology, hierarchy, density, major regions]
 - Interaction model: [form submit, inline edit, route, popover, modal, etc.]
 - Required states: [default, empty, loading, error, success, permissions]

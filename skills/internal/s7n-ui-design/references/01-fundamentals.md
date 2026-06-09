@@ -83,6 +83,23 @@ one-off value when a token already exists. Do not rebuild a component that is
 already available. If the system is missing a needed token or component, name
 that gap and add the smallest reusable piece that fits the existing structure.
 
+### Diagnose Design Drift by Root Cause
+
+Before normalising an inconsistency, identify why the drift exists. Different
+causes need different fixes:
+
+| Drift cause | Typical symptom | Better fix |
+|-------------|-----------------|------------|
+| Missing token | The same semantic value is repeated with local numbers or colours | Add or extend the token, then use it everywhere that meaning appears |
+| One-off component | A local button, card, form row, or empty state duplicates a shared pattern | Replace it with the shared component or extract the smallest reusable component |
+| Pattern mismatch | The screen uses a different save, error, filter, navigation, or disclosure pattern from comparable screens | Align with the established product pattern unless the brief names a deliberate exception |
+| Conceptual flow mismatch | The UI exposes a different mental model, sequence, or level of detail than the user expects | Rework information architecture or interaction model before adjusting styles |
+
+Do not fix drift by repainting symptoms. A spacing patch will not solve a
+missing component. A new component will not solve the wrong product flow. Name
+the cause first, then change the smallest system-level decision that prevents
+the same drift from reappearing.
+
 ### 1. Set Predefined Style Options
 
 **Colour Options (Colour Palette):**
