@@ -83,3 +83,31 @@ The brief is ready when it answers:
 
 If these answers are still vague, clarify before writing UI code. A precise
 brief is faster than rebuilding a generic first draft.
+
+## Design Readiness Check
+
+Do not score the design numerically. Scores encourage post-hoc polishing loops
+and make subjective judgment look more exact than it is. Use this check before
+implementation to decide whether the first serious UI pass has enough direction.
+
+Mark each dimension as `ready`, `clarify`, or `change direction`:
+
+| Dimension | Ready when |
+|-----------|------------|
+| Register fit | The surface clearly follows product, brand, or content-heavy priorities |
+| Primary action | The one most important action or understanding is obvious |
+| Hierarchy | The dominant, secondary, and quiet elements are already decided |
+| State coverage | Default, empty, loading, error, success, and permission states are known |
+| Interaction risk | Modals, overlays, destructive actions, forms, and async flows have a chosen pattern |
+| Content realism | Minimum, typical, maximum, and long-text cases are accounted for |
+| Accessibility risk | Contrast, focus, keyboard, semantics, target size, and announcements have no obvious blockers |
+| Design-system fit | Existing tokens, components, and comparable screens have been checked |
+
+Interpretation:
+
+- **All ready:** implement the UI.
+- **Any clarify:** ask the smallest question that resolves the gap before
+  coding.
+- **Any change direction:** revise the brief before styling. Do not implement a
+  direction that already fails the register, primary action, or interaction
+  model.
